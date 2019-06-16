@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dz="clr-namespace:DeepZoom.Controls;assembly=DeepZoom"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="DeepZoom.TestApplication.MainWindow"
+        Title="Deep Zoom for WPF" Height="565.237" Width="695">
+    <Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Height="30" Orientation="Horizontal">
+                <Button Name="OpenButton" Height="30" Width="50" Content="Open" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenButton_Click" ></Button>
+                <Button Name="GetMapButton" Height="30" Width="50" Content="Get Map" HorizontalAlignment="left" VerticalAlignment="Top" Click="GetMapButton_Click"></Button>
+            </StackPanel>
+
+            <Grid DockPanel.Dock="Bottom" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+                <Border Name="DZViewBox" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" MouseMove="DZViewBox_MouseMove"/>
+                <Grid Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="70*"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="black" BorderThickness="0">
+                        <Canvas Name="MapBox" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseMove="MapBox_MouseMove">
+                            <Canvas.Background>
+                                <ImageBrush x:Name="MapImage">
+                                </ImageBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </Border>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
